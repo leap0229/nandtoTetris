@@ -1,0 +1,101 @@
+CHIP Xor16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Not(in=b[0], out=notoutb0);
+    Not(in=a[0], out=notouta0);
+    And(a=a[0], b=notoutb0, out=anda0);
+    And(a=notouta0, b=b[0], out=andb0);
+    Or(a=anda0, b=andb0, out=out[0]);
+
+    Not(in=b[1], out=notoutb1);
+    Not(in=a[1], out=notouta1);
+    And(a=a[1], b=notoutb1, out=anda1);
+    And(a=notouta1, b=b[1], out=andb1);
+    Or(a=anda1, b=andb1, out=out[1]);
+
+    Not(in=b[2], out=notoutb2);
+    Not(in=a[2], out=notouta2);
+    And(a=a[2], b=notoutb2, out=anda2);
+    And(a=notouta2, b=b[2], out=andb2);
+    Or(a=anda2, b=andb2, out=out[2]);  
+
+    Not(in=b[3], out=notoutb3);
+    Not(in=a[3], out=notouta3);
+    And(a=a[3], b=notoutb3, out=anda3);
+    And(a=notouta3, b=b[3], out=andb3);
+    Or(a=anda3, b=andb3, out=out[3]);  
+      
+    Not(in=b[4], out=notoutb4);
+    Not(in=a[4], out=notouta4);
+    And(a=a[4], b=notoutb4, out=anda4);
+    And(a=notouta4, b=b[4], out=andb4);
+    Or(a=anda4, b=andb4, out=out[4]);  
+      
+    Not(in=b[5], out=notoutb5);
+    Not(in=a[5], out=notouta5);
+    And(a=a[5], b=notoutb5, out=anda5);
+    And(a=notouta5, b=b[5], out=andb5);
+    Or(a=anda5, b=andb5, out=out[5]);  
+      
+    Not(in=b[6], out=notoutb6);
+    Not(in=a[6], out=notouta6);
+    And(a=a[6], b=notoutb6, out=anda6);
+    And(a=notouta6, b=b[6], out=andb6);
+    Or(a=anda6, b=andb6, out=out[6]);  
+      
+    Not(in=b[7], out=notoutb7);
+    Not(in=a[7], out=notouta7);
+    And(a=a[7], b=notoutb7, out=anda7);
+    And(a=notouta7, b=b[7], out=andb7);
+    Or(a=anda7, b=andb7, out=out[7]);  
+      
+    Not(in=b[8], out=notoutb8);
+    Not(in=a[8], out=notouta8);
+    And(a=a[8], b=notoutb8, out=anda8);
+    And(a=notouta8, b=b[8], out=andb8);
+    Or(a=anda8, b=andb8, out=out[8]);  
+      
+    Not(in=b[9], out=notoutb9);
+    Not(in=a[9], out=notouta9);
+    And(a=a[9], b=notoutb9, out=anda9);
+    And(a=notouta9, b=b[9], out=andb9);
+    Or(a=anda9, b=andb9, out=out[9]);  
+      
+    Not(in=b[10], out=notoutb10);
+    Not(in=a[10], out=notouta10);
+    And(a=a[10], b=notoutb10, out=anda10);
+    And(a=notouta10, b=b[10], out=andb10);
+    Or(a=anda10, b=andb10, out=out[10]);  
+      
+    Not(in=b[11], out=notoutb11);
+    Not(in=a[11], out=notouta11);
+    And(a=a[11], b=notoutb11, out=anda11);
+    And(a=notouta11, b=b[11], out=andb11);
+    Or(a=anda11, b=andb11, out=out[11]);  
+      
+    Not(in=b[12], out=notoutb12);
+    Not(in=a[12], out=notouta12);
+    And(a=a[12], b=notoutb12, out=anda12);
+    And(a=notouta12, b=b[12], out=andb12);
+    Or(a=anda12, b=andb12, out=out[12]);  
+      
+    Not(in=b[13], out=notoutb13);
+    Not(in=a[13], out=notouta13);
+    And(a=a[13], b=notoutb13, out=anda13);
+    And(a=notouta13, b=b[13], out=andb13);
+    Or(a=anda13, b=andb13, out=out[13]);  
+      
+    Not(in=b[14], out=notoutb14);
+    Not(in=a[14], out=notouta14);
+    And(a=a[14], b=notoutb14, out=anda14);
+    And(a=notouta14, b=b[14], out=andb14);
+    Or(a=anda14, b=andb14, out=out[14]);  
+      
+    Not(in=b[15], out=notoutb15);
+    Not(in=a[15], out=notouta15);
+    And(a=a[15], b=notoutb15, out=anda15);
+    And(a=notouta15, b=b[15], out=andb15);
+    Or(a=anda15, b=andb15, out=out[15]);
+}

@@ -1,0 +1,17 @@
+CHIP DMux16 {
+    IN in[16], sel;
+    OUT a[16], b[16];
+
+    PARTS:
+    Not(in=sel, out=notOutSel);
+
+    And16(a=in, b[0]=notOutSel, b[1]=notOutSel, b[2]=notOutSel, b[3]=notOutSel,
+    b[4]=notOutSel, b[5]=notOutSel, b[6]=notOutSel, b[7]=notOutSel, b[8]=notOutSel,
+    b[9]=notOutSel, b[10]=notOutSel, b[11]=notOutSel, b[12]=notOutSel,
+    b[13]=notOutSel, b[14]=notOutSel, b[15]=notOutSel, out=a);
+
+    And16(a[0]=sel, a[1]=sel, a[2]=sel, a[3]=sel,
+    a[4]=sel, a[5]=sel, a[6]=sel, a[7]=sel, a[8]=sel,
+    a[9]=sel, a[10]=sel, a[11]=sel, a[12]=sel,
+    a[13]=sel, a[14]=sel, a[15]=sel, b=in, out=b);
+}
