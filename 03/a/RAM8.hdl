@@ -15,5 +15,31 @@ CHIP RAM8 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    // Address resolve
+    DMux8Way(in=true, sel=address, a=addressA, b=addressB, c=addressC,
+     d=addressD, e=addressE, f=addressF, g=addressG, h=addressH);
+
+    // Mux16(a=RegisterAOut, b=in, sel=load, out=outA);
+    And(a=addressA, b=load, out=addressLoadA);
+    And(a=addressB, b=load, out=addressLoadB);
+    And(a=addressC, b=load, out=addressLoadC);
+    And(a=addressD, b=load, out=addressLoadD);
+    And(a=addressE, b=load, out=addressLoadE);
+    And(a=addressF, b=load, out=addressLoadF);
+    And(a=addressG, b=load, out=addressLoadG);
+    And(a=addressH, b=load, out=addressLoadH);
+
+    // Register Def
+    Register(in=in, load=addressLoadA, out=registerAOut);
+    Register(in=in, load=addressLoadB, out=registerBOut);
+    Register(in=in, load=addressLoadC, out=registerCOut);
+    Register(in=in, load=addressLoadD, out=registerDOut);
+    Register(in=in, load=addressLoadE, out=registerEOut);
+    Register(in=in, load=addressLoadF, out=registerFOut);
+    Register(in=in, load=addressLoadG, out=registerGOut);
+    Register(in=in, load=addressLoadH, out=registerHOut);
+
+    Mux8Way16(a=registerAOut, b=registerBOut, c=registerCOut, d=registerDOut,
+     e=registerEOut, f=registerFOut, g=registerGOut, h=registerHOut, sel=address, 
+     out=out);
 }

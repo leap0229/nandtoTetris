@@ -15,5 +15,28 @@ CHIP RAM4K {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    DMux8Way(in=true, sel=address[9..11], a=address512A, b=address512B, c=address512C,
+     d=address512D, e=address512E, f=address512F, g=address512G, h=address512H);
+
+    And(a=address512A, b=load, out=addressLoad512A);
+    And(a=address512B, b=load, out=addressLoad512B);
+    And(a=address512C, b=load, out=addressLoad512C);
+    And(a=address512D, b=load, out=addressLoad512D);
+    And(a=address512E, b=load, out=addressLoad512E);
+    And(a=address512F, b=load, out=addressLoad512F);
+    And(a=address512G, b=load, out=addressLoad512G);
+    And(a=address512H, b=load, out=addressLoad512H);
+
+    RAM512(in=in, load=addressLoad512A, address=address[0..8], out=register512AOut);
+    RAM512(in=in, load=addressLoad512B, address=address[0..8], out=register512BOut);
+    RAM512(in=in, load=addressLoad512C, address=address[0..8], out=register512COut);
+    RAM512(in=in, load=addressLoad512D, address=address[0..8], out=register512DOut);
+    RAM512(in=in, load=addressLoad512E, address=address[0..8], out=register512EOut);
+    RAM512(in=in, load=addressLoad512F, address=address[0..8], out=register512FOut);
+    RAM512(in=in, load=addressLoad512G, address=address[0..8], out=register512GOut);
+    RAM512(in=in, load=addressLoad512H, address=address[0..8], out=register512HOut);
+
+    Mux8Way16(a=register512AOut, b=register512BOut, c=register512COut, d=register512DOut,
+     e=register512EOut, f=register512FOut, g=register512GOut, h=register512HOut, 
+     sel=address[9..11], out=out);
 }
