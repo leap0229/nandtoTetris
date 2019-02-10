@@ -12,3 +12,46 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+(LOOP)
+    @SCREEN
+    D=A
+    @i // i
+    M=D
+    @24575
+    D=A
+    @MAXPIXEL
+    M=D
+    @KBD   //A = Monitoring KyebordInput
+    D=M
+    @BLACKOUT
+    D;JNE
+    @WHITEOUT
+    0;JMP
+
+(BLACKOUT)
+    @i
+    A=M // A is screenAddress
+    M=-1 // pixel is black
+    @i
+    M=M+1 // i = i + 1
+    D=M
+    @MAXPIXEL
+    D=M-D
+    @LOOP
+    D;JLT
+    @BLACKOUT
+    0;JMP
+
+(WHITEOUT)
+    @i
+    A=M // A is screenAddress
+    M=0 // pixel is white
+    @i
+    M=M+1 // i = i + 1
+    D=M
+    @MAXPIXEL
+    D=M-D
+    @LOOP
+    D;JLT
+    @WHITEOUT
+    0;JMP
